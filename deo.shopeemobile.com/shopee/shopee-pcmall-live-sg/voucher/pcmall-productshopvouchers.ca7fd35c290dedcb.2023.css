@@ -1,0 +1,55 @@
+/*!
+ * Project: pcmall;
+ * Module: voucher;
+ * Slot: pcmall-pcpagevoucherdetail;
+ * BuiltAt: 2026-08-12T03:40:11.263Z;
+ * Tag: 'sw-WEBFE-MKP-2026.08.v1-1-1';
+ * Branch: 'heads/sw-WEBFE-MKP-2026.08.v1-1-1';
+ * Git hash: '63cff24b4fdd92f34d06cc273cfbfe2962013ecb';
+ */
+
+.HBYfZs {
+    z-index: 600
+}
+
+.v5BwWV {
+    word-break: break-word;
+    max-width: 17.1875rem;
+    padding: .75rem
+}
+
+.ySV8ug {
+    align-items: center;
+    height: 100%;
+    display: flex
+}
+
+.qsjtD2 {
+    margin-bottom: 1.25rem;
+    height: 7.375rem !important
+}
+
+.product-shop-vouchers__header {
+    color: #0006;
+    margin: .625rem 0 1.25rem
+}
+
+.product-shop-vouchers__list {
+    padding-left: .25rem;
+    overflow-y: auto
+}
+
+.product-shop-vouchers__see-more {
+    color: #000000de;
+    margin: 1.25rem 0 .9375rem;
+    padding-left: .625rem;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    display: block
+}
+
+.npYPel {
+    margin-top: .3125rem
+}
+
+/*# sourceMappingURL=https://sourcemap.webfe.shopeemobile.com/pcmall-voucher/_/pcmall-productshopvouchers.ca7fd35c290dedcb.2023.css.map*/

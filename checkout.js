@@ -18,7 +18,6 @@
   document.getElementById('cancel-address').addEventListener('click', () => dialog.close());
   noNumber.addEventListener('change', () => {
     number.disabled = noNumber.checked;
-    number.required = !noNumber.checked;
   });
   form.elements.postalCode.addEventListener('input', event => {
     const digits = event.target.value.replace(/\D/g, '').slice(0, 8);

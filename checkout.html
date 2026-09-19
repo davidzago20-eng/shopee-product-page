@@ -45,18 +45,18 @@
     <form id="address-form" autocomplete="off">
       <h2 id="address-title" tabindex="-1" autofocus>Novo Endere&#231;o</h2>
       <div class="fields">
-        <div class="two-columns"><input name="fullName" aria-label="Nome Completo" placeholder="Nome Completo" required maxlength="100"><input name="phone" type="tel" inputmode="tel" aria-label="N&#250;mero de Telefone" placeholder="N&#250;mero de Telefone" required pattern="[0-9() +\-]{10,20}" maxlength="20"></div>
-        <input name="postalCode" aria-label="CEP" placeholder="CEP" inputmode="numeric" required pattern="[0-9]{5}-?[0-9]{3}" maxlength="9">
-        <input name="city" aria-label="Estado - Cidade" placeholder="Estado - Cidade" required maxlength="100">
-        <input name="district" aria-label="Bairro" placeholder="Bairro" required maxlength="100">
-        <input name="street" aria-label="Rua / Avenida" placeholder="Rua / Avenida" required maxlength="150">
-        <div class="number-row"><input name="number" aria-label="N&#250;mero" placeholder="N&#250;mero" required maxlength="20"><label class="no-number"><input type="checkbox" name="noNumber">Sem N&#250;mero</label></div>
+        <div class="two-columns"><input name="fullName" aria-label="Nome Completo" placeholder="Nome Completo" maxlength="100"><input name="phone" type="tel" inputmode="tel" aria-label="N&#250;mero de Telefone" placeholder="N&#250;mero de Telefone" pattern="[0-9() +\-]{10,20}" maxlength="20"></div>
+        <input name="postalCode" aria-label="CEP" placeholder="CEP" inputmode="numeric" pattern="[0-9]{5}-?[0-9]{3}" maxlength="9">
+        <input name="city" aria-label="Estado - Cidade" placeholder="Estado - Cidade" maxlength="100">
+        <input name="district" aria-label="Bairro" placeholder="Bairro" maxlength="100">
+        <input name="street" aria-label="Rua / Avenida" placeholder="Rua / Avenida" maxlength="150">
+        <div class="number-row"><input name="number" aria-label="N&#250;mero" placeholder="N&#250;mero" maxlength="20"><label class="no-number"><input type="checkbox" name="noNumber">Sem N&#250;mero</label></div>
         <input name="complement" aria-label="Complemento" placeholder="Complemento" maxlength="150">
         <input name="reference" aria-label="Refer&#234;ncia / Bloco / Descri&#231;&#227;o" placeholder="Refer&#234;ncia / Bloco / Descri&#231;&#227;o" maxlength="150">
       </div>
       <div class="form-actions"><button type="button" class="cancel" id="cancel-address">Cancelar</button><button type="submit" class="submit">Enviar</button></div>
     </form>
   </dialog>
-  <script src="checkout.js?v=payment-1"></script>
+  <script src="checkout.js?v=optional-1"></script>
 </body>
 </html>

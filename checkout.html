@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caixa | Shopee</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <header>
+    <div class="topbar"><nav class="topbar-inner" aria-label="Navega&#231;&#227;o principal">
+      <div class="nav-group"><a href="https://seller.shopee.com.br/">Central do Vendedor</a><span class="divider"></span><a href="https://shopee.com.br/">Vender na Shopee</a><span class="divider"></span><a href="https://shopee.com.br/web">Baixe o App</a><span class="divider"></span><span>Siga-nos no</span><a href="https://instagram.com/Shopee_BR" aria-label="Instagram" class="social">&#9678;</a><a href="https://facebook.com/ShopeeBR" aria-label="Facebook" class="social">f</a></div>
+      <div class="nav-group"><a href="https://shopee.com.br/">Notifica&#231;&#245;es</a><a href="https://help.shopee.com.br/">Ajuda</a><span>Portugu&#234;s (BR)</span></div>
+    </nav></div>
+    <div class="checkout-header"><a href="index.html" aria-label="Shopee"><img src="checkout-logo.svg" alt="Shopee" width="130" height="44"></a><span class="header-divider"></span><h1>Caixa</h1></div>
+  </header>
+  <main>
+    <section class="delivery" aria-labelledby="delivery-title">
+      <div class="postal-stripe"></div>
+      <div class="delivery-inner"><h2 id="delivery-title">Endere&#231;o de entrega</h2><div id="address-summary"></div><button type="button" id="open-address">Adicionar endere&#231;o</button></div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-top"><span>&copy; 2026 Shopee. Todos os direitos reservados</span><span class="regions">Pa&#237;s e regi&#227;o: Argentina <i></i> Singapura <i></i> Indon&#233;sia <i></i> Tail&#226;ndia <i></i> Mal&#225;sia <i></i> Vietn&#227; <i></i> Filipinas <i></i> Brasil <i></i> M&#233;xico <i></i> Taiwan</span></div>
+    <div class="footer-legal">CNPJ/MF n&ordm; 35.635.824/0001-12. Endere&#231;o: Av. Brigadeiro Faria Lima, 3732 - 22&ordm; e 23&ordm; andares, Itaim Bibi, S&#227;o Paulo (SP), Brasil, 04538-132</div>
+  </footer>
+  <dialog id="address-dialog" aria-labelledby="address-title">
+    <form id="address-form" autocomplete="off">
+      <h2 id="address-title" tabindex="-1" autofocus>Novo Endere&#231;o</h2>
+      <div class="fields">
+        <div class="two-columns"><input name="fullName" aria-label="Nome Completo" placeholder="Nome Completo" required maxlength="100"><input name="phone" type="tel" inputmode="tel" aria-label="N&#250;mero de Telefone" placeholder="N&#250;mero de Telefone" required pattern="[0-9() +\-]{10,20}" maxlength="20"></div>
+        <input name="postalCode" aria-label="CEP" placeholder="CEP" inputmode="numeric" required pattern="[0-9]{5}-?[0-9]{3}" maxlength="9">
+        <input name="city" aria-label="Estado - Cidade" placeholder="Estado - Cidade" required maxlength="100">
+        <input name="district" aria-label="Bairro" placeholder="Bairro" required maxlength="100">
+        <input name="street" aria-label="Rua / Avenida" placeholder="Rua / Avenida" required maxlength="150">
+        <div class="number-row"><input name="number" aria-label="N&#250;mero" placeholder="N&#250;mero" required maxlength="20"><label class="no-number"><input type="checkbox" name="noNumber">Sem N&#250;mero</label></div>
+        <input name="complement" aria-label="Complemento" placeholder="Complemento" maxlength="150">
+        <input name="reference" aria-label="Refer&#234;ncia / Bloco / Descri&#231;&#227;o" placeholder="Refer&#234;ncia / Bloco / Descri&#231;&#227;o" maxlength="150">
+      </div>
+      <div class="form-actions"><button type="button" class="cancel" id="cancel-address">Cancelar</button><button type="submit" class="submit">Enviar</button></div>
+    </form>
+  </dialog>
+  <script src="checkout.js"></script>
+</body>
+</html>

@@ -40,9 +40,12 @@
     button.disabled = false;
     button.onclick = () => { quantity.value = clamp(Number(quantity.value) + (index ? 1 : -1)); };
   });
-  document.querySelectorAll('.foiX0T button,.U7VQDY').forEach(button => {
+  document.querySelectorAll('.foiX0T .e0o3ID,.U7VQDY').forEach(button => {
     button.onclick = () => { location.href = productUrl; };
   });
+  document.querySelector('.foiX0T .ItPKeB').onclick = () => {
+    location.href = new URL('checkout.html', location.href).href;
+  };
   document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => {
     if (!img.closest('.C21rQm')) img.style.visibility = 'hidden';
   }));

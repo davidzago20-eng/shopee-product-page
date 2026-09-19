@@ -6,13 +6,33 @@
   const noNumber = form.elements.noNumber;
   const requestedQuantity = Number(new URLSearchParams(location.search).get('quantity'));
   const orderQuantity = Number.isInteger(requestedQuantity) && requestedQuantity > 0 ? Math.min(99, requestedQuantity) : 1;
-  const total = (199.99 * orderQuantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const cents = 19999 * orderQuantity;
+  const total = (cents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   document.getElementById('order-quantity').textContent = orderQuantity;
   ['item-subtotal', 'products-total', 'payment-total'].forEach(id => { document.getElementById(id).textContent = total; });
-  document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
-    input.addEventListener('change', () => {
-      document.getElementById('selected-method').textContent = input.value === 'pix' ? 'Pix' : 'Cart\u00e3o de Cr\u00e9dito';
-    });
+  document.getElementById('generate-pix').addEventListener('click', () => {
+    const payload = StaticPix.build({ key: '44769766000100', name: 'ZG NEGOCIOS DIGITAIS', city: 'RIO DE JANEIRO', cents });
+    const qr = qrcode(0, 'M');
+    qr.addData(payload, 'Byte');
+    qr.make();
+    document.getElementById('pix-qr').src = qr.createDataURL(6, 24);
+    document.getElementById('pix-code').value = payload;
+    document.getElementById('pix-amount').textContent = total;
+    document.getElementById('pix-payment').hidden = false;
+    document.getElementById('pix-title').focus({ preventScroll: true });
+    document.getElementById('pix-payment').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  document.getElementById('copy-pix').addEventListener('click', async () => {
+    const code = document.getElementById('pix-code');
+    const status = document.getElementById('pix-copy-status');
+    try {
+      await navigator.clipboard.writeText(code.value);
+      status.textContent = 'C\u00f3digo Pix copiado.';
+    } catch {
+      code.focus();
+      code.select();
+      status.textContent = 'Selecione Copiar para copiar o c\u00f3digo destacado.';
+    }
   });
   openButton.addEventListener('click', () => dialog.showModal());
   document.getElementById('cancel-address').addEventListener('click', () => dialog.close());
@@ -30,7 +50,7 @@
     const value = name => form.elements[name].value.trim();
     const summary = document.getElementById('address-summary');
     const recipient = document.createElement('strong');
-    recipient.textContent = `${value('fullName')} | ${value('phone')}`;
+    recipient.textContent = [value('fullName'), value('phone')].filter(Boolean).join(' | ');
     const address = document.createElement('div');
     address.textContent = [value('street'), noNumber.checked ? 'S/N' : value('number'), value('complement'), value('district'), value('city'), value('postalCode')].filter(Boolean).join(', ');
     summary.replaceChildren(recipient, address);
@@ -38,7 +58,7 @@
     dialog.close();
     document.getElementById('payment-step').hidden = false;
     document.body.classList.add('payment-active');
-    document.title = 'Finalizar pagamento | Shopee';
+    document.title = 'Finalizar pagamento | Achadinhos Online';
     history.replaceState(null, '', '#pagamento');
     window.scrollTo(0, 0);
   });

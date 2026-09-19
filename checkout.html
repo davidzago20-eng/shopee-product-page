@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Caixa | Shopee</title>
+  <title>Caixa | Achadinhos Online</title>
   <link rel="stylesheet" href="checkout.css">
-  <link rel="stylesheet" href="payment.css?v=1">
+  <link rel="stylesheet" href="payment.css?v=pix-2">
   <link rel="stylesheet" href="brand.css?v=1">
 </head>
 <body>
   <header>
     <div class="topbar"><nav class="topbar-inner" aria-label="Navega&#231;&#227;o principal">
-      <div class="nav-group"><a href="https://seller.shopee.com.br/">Central do Vendedor</a><span class="divider"></span><a href="https://shopee.com.br/">Vender na Shopee</a><span class="divider"></span><a href="https://shopee.com.br/web">Baixe o App</a><span class="divider"></span><span>Siga-nos no</span><a href="https://instagram.com/Shopee_BR" aria-label="Instagram" class="social">&#9678;</a><a href="https://facebook.com/ShopeeBR" aria-label="Facebook" class="social">f</a></div>
-      <div class="nav-group"><a href="https://shopee.com.br/">Notifica&#231;&#245;es</a><a href="https://help.shopee.com.br/">Ajuda</a><span>Portugu&#234;s (BR)</span></div>
+      <div class="nav-group"><a href="index.html">Achadinhos Online</a></div>
+      <div class="nav-group"><span>Portugu&#234;s (BR)</span></div>
     </nav></div>
     <div class="checkout-header"><a href="index.html" class="store-brand" aria-label="Achadinhos Online">Achadinhos<span>Online</span></a><span class="header-divider"></span><h1>Caixa</h1></div>
   </header>
@@ -31,16 +31,19 @@
         </div>
       </section>
       <section class="payment-section" aria-labelledby="payment-title">
-        <div class="payment-heading"><h2 id="payment-title" tabindex="-1">M&#233;todo de pagamento</h2><fieldset class="payment-options"><legend class="visually-hidden">Escolha o m&#233;todo de pagamento</legend><label><input type="radio" name="paymentMethod" value="pix" checked><span>Pix</span></label><label><input type="radio" name="paymentMethod" value="card"><span>Cart&#227;o de Cr&#233;dito</span></label></fieldset></div>
-        <div class="selected-method" id="selected-method" aria-live="polite">Pix</div>
+        <div class="payment-heading"><h2 id="payment-title" tabindex="-1">M&#233;todo de pagamento</h2><fieldset class="payment-options"><legend class="visually-hidden">M&#233;todo de pagamento</legend><label><input type="radio" name="paymentMethod" value="pix" checked><span>Pix</span></label></fieldset></div>
+        <div class="selected-method" id="selected-method">Pix</div>
         <div class="totals"><dl><div><dt>Total dos Produtos</dt><dd id="products-total">R$ 199,99</dd></div><div><dt>Total do Frete</dt><dd>A calcular</dd></div><div class="grand-total"><dt>Pagamento Total</dt><dd id="payment-total">R$ 199,99</dd></div></dl></div>
-        <div class="place-order"><span>Pagamento ainda n&#227;o configurado.</span><button type="button" disabled title="Pagamento ainda n&#227;o configurado">Fazer pedido</button></div>
+        <div class="place-order"><span>Valor dos produtos. Frete n&#227;o inclu&#237;do.</span><button type="button" id="generate-pix">Gerar Pix</button></div>
+        <section id="pix-payment" class="pix-payment" hidden aria-labelledby="pix-title">
+          <div><h2 id="pix-title" tabindex="-1">Pagar com Pix</h2><img id="pix-qr" alt="QR Code para pagamento Pix" width="256" height="256"></div>
+          <div class="pix-details"><strong id="pix-amount"></strong><dl><dt>Recebedor</dt><dd>ZG NEGOCIOS DIGITAIS</dd><dt>Cidade</dt><dd>Rio de Janeiro</dd><dt>Chave Pix (CNPJ)</dt><dd>44769766000100</dd></dl><label for="pix-code">Pix copia e cola</label><textarea id="pix-code" rows="4" readonly spellcheck="false"></textarea><button type="button" id="copy-pix">Copiar c&#243;digo Pix</button><p id="pix-copy-status" role="status"></p><p class="pix-note">Confira o recebedor e o valor no aplicativo do seu banco. Pagamento sujeito a confer&#234;ncia manual. O endere&#231;o informado n&#227;o &#233; enviado ao recebedor por este site.</p></div>
+        </section>
       </section>
     </div>
   </main>
   <footer>
-    <div class="footer-top"><span>&copy; 2026 Shopee. Todos os direitos reservados</span><span class="regions">Pa&#237;s e regi&#227;o: Argentina <i></i> Singapura <i></i> Indon&#233;sia <i></i> Tail&#226;ndia <i></i> Mal&#225;sia <i></i> Vietn&#227; <i></i> Filipinas <i></i> Brasil <i></i> M&#233;xico <i></i> Taiwan</span></div>
-    <div class="footer-legal">CNPJ/MF n&ordm; 35.635.824/0001-12. Endere&#231;o: Av. Brigadeiro Faria Lima, 3732 - 22&ordm; e 23&ordm; andares, Itaim Bibi, S&#227;o Paulo (SP), Brasil, 04538-132</div>
+    <div class="footer-top"><span>&copy; 2026 Achadinhos Online.</span><span>ZG Neg&#243;cios Digitais &middot; Rio de Janeiro</span></div>
   </footer>
   <dialog id="address-dialog" aria-labelledby="address-title">
     <form id="address-form" autocomplete="off">
@@ -58,6 +61,8 @@
       <div class="form-actions"><button type="button" class="cancel" id="cancel-address">Cancelar</button><button type="submit" class="submit">Enviar</button></div>
     </form>
   </dialog>
-  <script src="checkout.js?v=optional-1"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script src="pix.js?v=1"></script>
+  <script src="checkout.js?v=pix-2"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 (() => {
-  const productUrl = 'https://shopee.com.br/product/1215385259/53750943172';
   const hero = document.querySelector('.e3bgiU');
   hero.src = './product-images/br-11134207-820m6-ms42s3kelced28.jpg';
   document.querySelectorAll('.qIctnQ').forEach((thumbnail, index) => {
@@ -40,14 +39,12 @@
     button.disabled = false;
     button.onclick = () => { quantity.value = clamp(Number(quantity.value) + (index ? 1 : -1)); };
   });
-  document.querySelectorAll('.foiX0T .e0o3ID,.U7VQDY').forEach(button => {
-    button.onclick = () => { location.href = productUrl; };
-  });
-  document.querySelector('.foiX0T .ItPKeB').onclick = () => {
+  const openCheckout = () => {
     const checkout = new URL('checkout.html', location.href);
     checkout.searchParams.set('quantity', clamp(quantity.value));
     location.href = checkout.href;
   };
+  document.querySelectorAll('.foiX0T button').forEach(button => { button.onclick = openCheckout; });
   document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => {
     if (!img.closest('.C21rQm')) img.style.visibility = 'hidden';
   }));

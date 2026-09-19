@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Caixa | Shopee</title>
   <link rel="stylesheet" href="checkout.css">
+  <link rel="stylesheet" href="payment.css?v=1">
 </head>
 <body>
   <header>
@@ -19,6 +20,22 @@
       <div class="postal-stripe"></div>
       <div class="delivery-inner"><h2 id="delivery-title">Endere&#231;o de entrega</h2><div id="address-summary"></div><button type="button" id="open-address">Adicionar endere&#231;o</button></div>
     </section>
+    <div id="payment-step" hidden>
+      <section class="order-section" aria-labelledby="order-title">
+        <div class="order-grid order-heading"><h2 id="order-title">Produtos Pedidos</h2><span>Pre&#231;o unit&#225;rio</span><span>Quantia</span><span>Subtotal de itens</span></div>
+        <div class="package-title">Pacote 1</div>
+        <div class="order-grid product-row">
+          <div class="ordered-product"><img src="product-images/br-11134207-820m6-ms42s3kelced28.jpg" alt="Conjunto de panelas Coffee Cappuccino" width="48" height="48"><span>Jogo De Panelas 10 Pe&#231;as Antiaderente Conjunto Frigideira Fervedor tampa de vidro Cor Coffee Cappuccino Kit Talheres</span></div>
+          <span>R$ 199,99</span><span id="order-quantity">1</span><strong id="item-subtotal">R$ 199,99</strong>
+        </div>
+      </section>
+      <section class="payment-section" aria-labelledby="payment-title">
+        <div class="payment-heading"><h2 id="payment-title" tabindex="-1">M&#233;todo de pagamento</h2><fieldset class="payment-options"><legend class="visually-hidden">Escolha o m&#233;todo de pagamento</legend><label><input type="radio" name="paymentMethod" value="pix" checked><span>Pix</span></label><label><input type="radio" name="paymentMethod" value="card"><span>Cart&#227;o de Cr&#233;dito</span></label></fieldset></div>
+        <div class="selected-method" id="selected-method" aria-live="polite">Pix</div>
+        <div class="totals"><dl><div><dt>Total dos Produtos</dt><dd id="products-total">R$ 199,99</dd></div><div><dt>Total do Frete</dt><dd>A calcular</dd></div><div class="grand-total"><dt>Pagamento Total</dt><dd id="payment-total">R$ 199,99</dd></div></dl></div>
+        <div class="place-order"><span>Pagamento ainda n&#227;o configurado.</span><button type="button" disabled title="Pagamento ainda n&#227;o configurado">Fazer pedido</button></div>
+      </section>
+    </div>
   </main>
   <footer>
     <div class="footer-top"><span>&copy; 2026 Shopee. Todos os direitos reservados</span><span class="regions">Pa&#237;s e regi&#227;o: Argentina <i></i> Singapura <i></i> Indon&#233;sia <i></i> Tail&#226;ndia <i></i> Mal&#225;sia <i></i> Vietn&#227; <i></i> Filipinas <i></i> Brasil <i></i> M&#233;xico <i></i> Taiwan</span></div>
@@ -40,6 +57,6 @@
       <div class="form-actions"><button type="button" class="cancel" id="cancel-address">Cancelar</button><button type="submit" class="submit">Enviar</button></div>
     </form>
   </dialog>
-  <script src="checkout.js"></script>
+  <script src="checkout.js?v=payment-1"></script>
 </body>
 </html>

@@ -44,7 +44,9 @@
     button.onclick = () => { location.href = productUrl; };
   });
   document.querySelector('.foiX0T .ItPKeB').onclick = () => {
-    location.href = new URL('checkout.html', location.href).href;
+    const checkout = new URL('checkout.html', location.href);
+    checkout.searchParams.set('quantity', clamp(quantity.value));
+    location.href = checkout.href;
   };
   document.querySelectorAll('img').forEach(img => img.addEventListener('error', () => {
     if (!img.closest('.C21rQm')) img.style.visibility = 'hidden';
